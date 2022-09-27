@@ -3,10 +3,10 @@ pipeline {
     stages {
         stage('test') {
             steps {
-                sh 'echo hello'
+                sh 'echo Welcome to india'
             }
         }
-        stage('learning') {
+        stage('learning_curve') {
             steps {
                 git url: 'https://github.com/GitPracticeRepo/game-of-life.git', 
                     branch: 'master'
