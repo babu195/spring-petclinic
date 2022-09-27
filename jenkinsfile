@@ -1,0 +1,9 @@
+node {
+    stage('test') {
+        sh 'echo Welcome to the world of DevOps'
+    }
+    stage('learning') {
+        git url: 'https://github.com/GitPracticeRepo/game-of-life.git',
+            branch: 'master'
+    }
+}
