@@ -1,16 +1,9 @@
-pipeline {
-    agent any
-    stages {
-        stage('test') {
-            steps {
-                sh 'echo Welcome to india'
-            }
-        }
-        stage('learning_curve') {
-            steps {
-                git url: 'https://github.com/babu195/spring-petclinic.git', 
-                    branch: 'main'
-            }
-        }
+node {
+    stage('test') {
+        sh 'echo Welcome to the world'
     }
-}
+    stage('learning') {
+        git url: 'https://github.com/babu195/spring-petclinic.git',
+            branch: 'main'
+    }
+} 
