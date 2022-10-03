@@ -8,7 +8,7 @@ pipeline {
         }
         stage('built') {
             steps {
-                sh '/opt/apache-maven-3.6.3/bin/mvn package'
+                sh 'mvn package'
             }
         }
         stage('Archive Artifacts') {
