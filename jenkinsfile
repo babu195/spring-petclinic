@@ -1,9 +1,20 @@
-node {
-    stage('test') {
-        sh 'echo Welcome to the world'
+pipeline {
+    agent { label 'OPENJDK-11-MVN' }
+    stages {
+        stage('vcs') {
+            steps {
+                git branch: 'main', url: 'https://github.com/babu195/spring-petclinic.git'
+            }
+        }
+        stage('built') {
+            steps {
+                sh '/opt/apache-maven-3.6.3/bin/mvn package'
+            }
+        }
+        stage('Archive Artifacts') {
+            steps {
+                junit '**/surefire-reports/*.xml'
+            }
+        }
     }
-    stage('learning') {
-        git url: 'https://github.com/babu195/spring-petclinic.git',
-            branch: 'main'
-    }
-} 
+}
