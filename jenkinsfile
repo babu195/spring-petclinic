@@ -1,9 +1,10 @@
 pipeline {
     agent { label 'OPENJDK-11-MVN' }
+    parameters { choice(name: 'BRANCH_TO_BUILT', choices: ['main', 'springboot3'], description: 'Branch to built') }
     stages {
         stage('vcs') {
             steps {
-                git branch: 'main', url: 'https://github.com/babu195/spring-petclinic.git'
+                git branch: ${params.BRANCH_TO_BUILT} , url: 'https://github.com/babu195/spring-petclinic.git'
             }
         }
         stage('built') {
